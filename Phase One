@@ -1,0 +1,46 @@
+body {
+    background-color: rgb(47, 95, 150);
+    padding: 30px;
+  }
+  h1 {
+    font-family: "Times New Roman", monospace;
+    font-size: 24px;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  p {
+    font-family: "Times New Roman", monospace;
+    font-size: 12px;
+    color: #e85a4f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+/*
+  #numButton,
+  #txtButton, */
+  #next {
+    background-color: #eae7dc;
+    font-family: "Times New Roman", monospace;
+    font-size: 10px;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px;
+  }
+
+  #numResults,
+  #txtResults {
+    text-align: center;
+  }
+
+  .input,
+  .nextPage {
+    margin: auto;
+    padding: 30px;
+    width: 40%;
+    background-color: #ccc;
+    border-radius: 3px;
+    text-align: center;
+  }

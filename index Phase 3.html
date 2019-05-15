@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Michael Sanchez</title>
+  <link href="PHASE3.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+</head>
+
+<body>
+
+      <script>
+          var images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+          console.log(images);
+          var Title = ["Car 1","Car 2","Car 3","Car 4","Car 5","Car 6"];
+          var Caption = ["This car you clicked is now in your favorites!","Car 2 is now yours!","Car 3 now belongs to you!","Congrats of owning Car 4!","You are the owner of Car 5!","Car 6 is ready to be driven!"];
+          var url;
+          var ContainMe = document.createElement("div");
+          ContainMe.setAttribute("class","Hold");
+          ContainMe.setAttribute("id","Hold");
+          document.body.appendChild(ContainMe);
+
+
+            //debugging code
+              setCookie("test","one",1);
+              console.log("test for " + getCookie("test"));
+              // if (getCookie("img"+i)) {
+              //   console.log("cooke returned true");
+              // } else {
+              //   console.log("cookie returned false");
+              //   setCookie("img","2",1);
+              //   console.log(getCookie("img2"));
+              // }
+
+
+          for (var i=0; i < images.length; i++)
+          {
+              console.log("image in iteration is" + images[i]);
+              url =  images[i];
+              urlTitle = Title[i];
+              urlCaption = Caption[i];
+            console.log(i);
+
+
+             var favorite = document.createElement("button");
+             favorite.innerHTML = "favorite";
+             favorite.setAttribute("id",i);
+            favorite.addEventListener("click",function(){
+              var jpg = this.id;
+               var Title = document.getElementById("Title"+ jpg);
+               var pTitle = Title.textContent;
+               var Caption = document.getElementById("Caption"+ jpg);
+               var pCaption = Caption.textContent;
+
+              jpg++;
+               jpg += ".jpg";
+
+
+              setCookie("img",jpg, 1);
+              console.log(jpg);
+              console.log(getCookie("img"));
+              // window.location = "detailPage.html?" + "img=" + jpg + "&Title=" + pTitle + "&Caption=" + pCaption;
+
+            });
+
+
+
+
+             var unfavorite = document.createElement("button");
+             unfavorite.innerHTML = "unfavorite"
+             unfavorite.setAttribute ("id","unfave" + i);
+
+
+
+
+              urlOfDetailPage ="detailPage.html?" + "img=" + url + "&Title=" + urlTitle + "&Caption=" + urlCaption;
+              var imgDiv = document.createElement("div");
+              var imgInDiv = document.createElement("img");
+              var CaptioninDiv = document.createElement("p");
+              CaptioninDiv.setAttribute("id", "Caption" + i);
+
+              var TitleinDiv = document.createElement("p");
+              TitleinDiv.setAttribute("id", "Title" + i);
+             //imgInDiv.setAttribute ("class", "Box");
+             CaptioninDiv.innerHTML = Caption [i];
+             imgDiv.setAttribute("class","Grid");
+              TitleinDiv.innerHTML = Title [i];
+              imgInDiv.setAttribute("class", "Image");
+              imgInDiv.setAttribute("src", url);
+
+              var link = document.createElement("a");
+
+              link.setAttribute("href", urlOfDetailPage);
+              imgDiv.appendChild(link);
+              link.appendChild(imgInDiv);
+              imgDiv.appendChild(TitleinDiv);
+              imgDiv.appendChild(CaptioninDiv);
+
+
+              imgDiv.appendChild(favorite);
+             imgDiv.appendChild(unfavorite);
+             ContainMe.appendChild(imgDiv);
+
+
+              //document.body.appendChild(imgDiv);
+
+              }
+
+              function setCookie(cname,cvalue,exdays) {
+              var d = new Date();
+              d.setTime(d.getTime() + (exdays*24*60*60*1000));
+              var expires = "expires=" + d.toGMTString();
+              document.cookie = cname+"="+cvalue+"; "+expires;
+              }
+
+                function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0; i<ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1);
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+                }
+
+                function checkCookie() {
+                var user=getCookie("username");
+                if (user != "") {
+                    alert("Welcome again " + user);
+                } else {
+                  user = prompt("Please enter your name:","");
+                  if (user != "" && user != null) {
+                      setCookie("username", user, 30);
+                  }
+                }
+                }
+
+
+      </script>
+
+</body>
+
+</html>

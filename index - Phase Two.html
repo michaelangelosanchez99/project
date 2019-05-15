@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Michael Sanchez</title>
+  <link href="PHASE2.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+</head>
+
+<body>
+
+      <script>
+          var images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+          console.log(images);
+          var Title = ["Car 1","Car 2","Car 3","Car 4","Car 5","Car 6"];
+          var Caption = ["Click on this image!","Click on this image!","Click on this image!","Click on this image!","Click on this image!","Click on this image!"];
+          var url;
+
+          for (var i=0; i < images.length; i++)
+          {
+              console.log("image in iteration is" + images[i]);
+              url =  images[i];
+              urlTitle = Title[i];
+              urlCaption = Caption[i];
+
+              urlOfDetailPage ="detailPage.html?" + "img=" + url + "&Title=" + urlTitle + "&Caption=" + urlCaption;
+              var imgDiv = document.createElement("div");
+              var imgInDiv = document.createElement("img");
+              var CaptioninDiv = document.createElement("p");
+              var TitleinDiv = document.createElement("p");
+             // imgInDiv.setAttribute ("class", "Box");
+             CaptioninDiv.innerHTML = Caption [i];
+             TitleinDiv.innerHTML = Title [i];
+              imgInDiv.setAttribute("class", "Image");
+              imgInDiv.setAttribute("src", url);
+
+              var link = document.createElement("a");
+
+              link.setAttribute("href", urlOfDetailPage);
+              imgDiv.appendChild(link);
+              link.appendChild(imgInDiv);
+              imgDiv.appendChild(TitleinDiv);
+              imgDiv.appendChild(CaptioninDiv);
+
+              // imgDiv.appendChild(link);
+
+              document.body.appendChild(imgDiv);
+
+              }
+
+
+
+      </script>
+
+</body>
+
+</html>
